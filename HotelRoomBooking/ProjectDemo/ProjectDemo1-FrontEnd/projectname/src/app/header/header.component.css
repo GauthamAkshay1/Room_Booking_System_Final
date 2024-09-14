@@ -1,0 +1,196 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f0f0f0;
+}
+
+/* Navbar Container */
+nav {
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;  /* Fixes the navbar to the top */
+  top: 0;           /* Ensures it's at the top of the viewport */
+  left: 0;
+  z-index: 999;     /* Ensures the navbar stays on top of other content */
+  background-color: #001f3f;  /* Background color for the navbar */
+}
+
+/* Menu Wrapper */
+.menu {
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Styles */
+.logo a {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffcc00; /* Bright yellow for Royal Rooms */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the logo */
+.logo a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: 40px;
+}
+
+/* Individual Nav Link Styles */
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 18px;
+  color: #ffcc00; /* Bright yellow */
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  background-color: #004080; /* Lighter blue on hover */
+  transform: scale(1.05);
+}
+
+/* Toggle Button for Small Screens */
+.button {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffcc00;
+}
+
+/* Hide Checkbox */
+#check {
+  display: none;
+}
+
+/* When checked, reveal nav-links */
+#check:checked ~ .menu .nav-links {
+  left: 0;
+}
+
+/* Cancel button is hidden initially */
+.button.cancel {
+  display: none;
+}
+
+/* Styles for screens smaller than 940px */
+@media (max-width: 940px) {
+  /* Nav links become a full-screen menu */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #001f3f;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+
+  /* Style for each link in the expanded menu */
+  .nav-links li {
+    margin: 20px 0;
+  }
+
+  .nav-link {
+    font-size: 24px;
+  }
+
+  /* Show the hamburger menu (bars) */
+  .button.bars {
+    display: block;
+  }
+
+  /* Show the cancel (X) button */
+  #check:checked ~ .menu .button.cancel {
+    display: block;
+  }
+
+  /* Hide the hamburger menu when the cancel button is shown */
+  #check:checked ~ .menu .button.bars {
+    display: none;
+  }
+
+  /* Reveal the nav links when checked */
+  #check:checked ~ .menu .nav-links {
+    left: 0;
+  }
+
+  /* Position the cancel button */
+  .button.cancel {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+  }
+}
+
+/* Navbar Toggler Button (for Bootstrap-like behavior) */
+.navbar-toggler {
+  padding: 5px 10px;  /* Smaller button size */
+  border: none;  /* No border */
+  background-color: transparent;  /* No background */
+}
+
+/* Adjust the size of the toggler icon */
+.navbar-toggler-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Styling for the navbar on screens smaller than 768px */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+  }
+
+  .nav-link {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+}

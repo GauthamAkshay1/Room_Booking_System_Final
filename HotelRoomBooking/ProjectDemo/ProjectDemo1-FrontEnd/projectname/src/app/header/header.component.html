@@ -1,0 +1,25 @@
+<nav class="navbar">
+  <input type="checkbox" id="check">
+  <label class="button bars" for="check"><i class="fas fa-bars"></i></label>
+
+  <div class="menu collapse navbar-collapse" id="navbarNav">
+    <div class="logo">
+      <a href="#">Royal Rooms</a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a class="nav-link" href="#home" (click)="closeNavbar()">Home</a></li>
+      <li><a class="nav-link" href="#aboutus" (click)="closeNavbar()">About</a></li>
+      <li><a class="nav-link" href="#gallery" (click)="closeNavbar()">Gallery</a></li>
+      <li><a class="nav-link" href="/rooms" (click)="closeNavbar()">Rooms</a></li>
+      <li><a class="nav-link" href="#contact" (click)="closeNavbar()">Contact</a></li>
+    </ul>
+
+    <label class="button cancel" for="check"><i class="fas fa-times"></i></label>
+  </div>
+
+  <!-- Bootstrap collapse button for smaller screens -->
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>

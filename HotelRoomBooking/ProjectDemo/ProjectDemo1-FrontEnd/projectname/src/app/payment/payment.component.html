@@ -1,0 +1,32 @@
+<div *ngIf="loading" class="text-center">Loading...</div>
+<div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+<div *ngIf="!loading && !error" class="container">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Room Number</th>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Location</th>
+          <th>Room Type</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of bookedRoomsPayments">
+          <td>{{ payment.roomNumber }}</td>
+          <td>{{ payment.amount | currency }}</td>
+          <td>{{ payment.date | date:'mediumDate' }}</td>
+          <td>{{ payment.location }}</td>
+          <td>{{ payment.roomType }}</td>
+          <td>{{ payment.price | currency }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="cancelBooking(payment.roomNumber)">Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

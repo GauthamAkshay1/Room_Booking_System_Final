@@ -1,0 +1,35 @@
+<!-- booked-rooms.component.html -->
+<div *ngIf="loading" class="text-center">Loading...</div>
+<div *ngIf="error" class="alert alert-danger text-center">{{ error }}</div>
+<div *ngIf="!loading && !error" class="container">
+  <div class="row">
+    <div *ngFor="let room of bookedRooms" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-image">
+          <!-- Room image -->
+          <img [src]="room.imagePath" class="card-img-top" alt="Room image">
+
+          <!-- "Booked" badge, shown by default if the room is not canceled -->
+          <div *ngIf="!room.isCanceled" class="booked-badge">Booked</div>
+
+          <!-- "Cancelled" overlay, shown when the room is canceled -->
+          <div *ngIf="room.isCanceled" class="cancelled-overlay">Cancelled</div>
+        </div>
+
+        <div class="card-detail">
+          <span class="price-label">PRICE: {{ room.price }}</span>
+          <span class="price-label">RATING: {{ room.rating }}</span>
+          <span class="price-label">LOCATION: {{ room.location }}</span>
+          <span class="price-label">DESCRIPTION: {{ room.description }}</span>
+          <span class="price-label">AMENITIES: {{ room.amenities }}</span>
+          <span class="price-label">ROOM TYPE: {{ room.roomType }}</span>
+        </div>
+
+        <div class="card-footer">
+          <!-- Cancel button, hidden when the room is canceled -->
+          <button *ngIf="!room.isCanceled" class="btn btn-danger w-100" (click)="cancelBooking(room.roomNumber)">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
